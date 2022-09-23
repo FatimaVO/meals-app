@@ -31,6 +31,6 @@ userRouter.use(protectSession);
 userRouter.patch("/:id", userExists, protectUsersAccount, updateUser);
 userRouter.delete("/:id", userExists, protectUsersAccount, deleteUser);
 userRouter.get("/orders", getAllOrders);
-userRouter.get("/orders/:id", orderExistsById, getOrderById);
+userRouter.get("/orders/:mealId", orderExistsById, getOrderById);
 
 module.exports = { userRouter };

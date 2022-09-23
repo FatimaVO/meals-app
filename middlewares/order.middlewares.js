@@ -23,12 +23,12 @@ const orderExists = catchAsync(async (req, res, next) => {
 });
 
 const orderExistsById = catchAsync(async (req, res, next) => {
-  const { id } = req.params;
+  const { mealId } = req.params;
   const { sessionUser } = req;
 
   const orderById = await Order.findOne({
     attributes: ["id", "totalPrice", "quantity", "status"],
-    where: { id, userId: sessionUser.id },
+    where: { id: mealId, userId: sessionUser.id },
     include: [
       {
         model: Meal,

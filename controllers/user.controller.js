@@ -46,11 +46,11 @@ const getAllOrders = catchAsync(async (req, res, next) => {
 });
 
 const getOrderById = catchAsync(async (req, res, next) => {
-  const { orderById } = req;
+  const { order } = req;
 
   res.status(200).json({
     status: "success",
-    data: { orderById },
+    data: { order },
   });
 });
 
