@@ -8,7 +8,6 @@ const { catchAsync } = require("../utils/catchAsync.util");
 const { AppError } = require("../utils/appError.util");
 
 const createOrder = catchAsync(async (req, res, next) => {
-
   const { mealId, quantity } = req.body;
   const { sessionUser } = req;
   const { meal } = req;
@@ -29,7 +28,6 @@ const createOrder = catchAsync(async (req, res, next) => {
 });
 
 const getAllOrders = catchAsync(async (req, res, next) => {
-
   const { sessionUser } = req;
 
   const orders = await Order.findAll({
@@ -61,7 +59,6 @@ const getAllOrders = catchAsync(async (req, res, next) => {
 });
 
 const completeOrder = catchAsync(async (req, res, next) => {
-
   const { order } = req;
 
   await order.update({ status: "completed" });
@@ -73,7 +70,6 @@ const completeOrder = catchAsync(async (req, res, next) => {
 });
 
 const cancelOrder = catchAsync(async (req, res, next) => {
-  
   const { order } = req;
 
   await order.update({ status: "cancelled" });
